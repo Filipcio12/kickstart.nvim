@@ -124,6 +124,9 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center line after moving 1/2 p
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center line after moving 1/2 page up' })
 vim.o.wrap = false
 vim.o.swapfile = false
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.expandtab = true
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -546,7 +549,7 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
         --
 
         lua_ls = {
@@ -637,7 +640,7 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
@@ -750,7 +753,7 @@ require('lazy').setup({
         transparent = true,
       }
 
-      vim.cmd.colorscheme 'vague'
+      -- vim.cmd.colorscheme 'vague'
     end,
   },
 
@@ -764,6 +767,20 @@ require('lazy').setup({
       vim.g.gruvbox_material_enable_italic = true
       vim.g.gruvbox_material_transparent_background = '1'
       -- vim.cmd.colorscheme('gruvbox-material')
+    end,
+  },
+
+  {
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
+    ---@type solarized.config
+    opts = {},
+    config = function(_, opts)
+      vim.o.termguicolors = true
+      vim.o.background = 'light'
+      require('solarized').setup(opts)
+      vim.cmd.colorscheme 'solarized'
     end,
   },
 

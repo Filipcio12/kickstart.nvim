@@ -766,21 +766,7 @@ require('lazy').setup({
       -- directly inside the plugin declaration.
       vim.g.gruvbox_material_enable_italic = true
       vim.g.gruvbox_material_transparent_background = '1'
-      -- vim.cmd.colorscheme('gruvbox-material')
-    end,
-  },
-
-  {
-    'maxmx03/solarized.nvim',
-    lazy = false,
-    priority = 1000,
-    ---@type solarized.config
-    opts = {},
-    config = function(_, opts)
-      vim.o.termguicolors = true
-      vim.o.background = 'light'
-      require('solarized').setup(opts)
-      vim.cmd.colorscheme 'solarized'
+      vim.cmd.colorscheme 'gruvbox-material'
     end,
   },
 

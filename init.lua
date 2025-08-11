@@ -758,6 +758,20 @@ require('lazy').setup({
   },
 
   {
+    'ramojus/mellifluous.nvim',
+    priority = 1000,
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require('mellifluous').setup {
+        colorset = 'mellifluous',
+      }
+
+      vim.cmd.colorscheme 'mellifluous'
+      -- vim.cmd 'Mellifluous toggle_transparency'
+    end,
+  },
+
+  {
     'sainnhe/gruvbox-material',
     lazy = false,
     priority = 1000,
@@ -766,7 +780,7 @@ require('lazy').setup({
       -- directly inside the plugin declaration.
       vim.g.gruvbox_material_enable_italic = true
       vim.g.gruvbox_material_transparent_background = '1'
-      vim.cmd.colorscheme 'gruvbox-material'
+      -- vim.cmd.colorscheme 'gruvbox-material'
     end,
   },
 

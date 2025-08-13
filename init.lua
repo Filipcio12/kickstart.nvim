@@ -119,7 +119,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
--- My mappings
+-- My options
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Center line after moving 1/2 page down' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Center line after moving 1/2 page up' })
 vim.o.wrap = false
@@ -127,6 +127,14 @@ vim.o.swapfile = false
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
+vim.o.winborder = 'rounded'
+
+vim.api.nvim_create_augroup('HandleBarsFileType', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+  pattern = '*.handlebars',
+  command = 'set filetype=html',
+  group = 'HandleBarsFileType',
+})
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -750,7 +758,7 @@ require('lazy').setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('vague').setup {
-        transparent = true,
+        -- transparent = true,
       }
 
       -- vim.cmd.colorscheme 'vague'

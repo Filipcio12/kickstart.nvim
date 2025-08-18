@@ -774,8 +774,22 @@ require('lazy').setup({
         colorset = 'mellifluous',
       }
 
-      vim.cmd.colorscheme 'mellifluous'
+      -- vim.cmd.colorscheme 'mellifluous'
+      -- vim.o.background = 'light'
       -- vim.cmd 'Mellifluous toggle_transparency'
+    end,
+  },
+
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    config = function()
+      require('rose-pine').setup {
+        styles = {
+          transparency = true,
+        },
+      }
+      vim.cmd 'colorscheme rose-pine'
     end,
   },
 

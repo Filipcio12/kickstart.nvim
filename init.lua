@@ -753,56 +753,17 @@ require('lazy').setup({
   },
 
   {
-    'vague2k/vague.nvim',
-    priority = 1000,
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('vague').setup {
-        -- transparent = true,
-      }
-
-      -- vim.cmd.colorscheme 'vague'
-    end,
-  },
-
-  {
-    'ramojus/mellifluous.nvim',
-    priority = 1000,
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('mellifluous').setup {
-        colorset = 'mellifluous',
-      }
-
-      -- vim.cmd.colorscheme 'mellifluous'
-      -- vim.o.background = 'light'
-      -- vim.cmd 'Mellifluous toggle_transparency'
-    end,
-  },
-
-  {
     'rose-pine/neovim',
     name = 'rose-pine',
     config = function()
       require('rose-pine').setup {
         styles = {
           transparency = true,
+          bold = false,
+          italic = false,
         },
       }
       vim.cmd 'colorscheme rose-pine'
-    end,
-  },
-
-  {
-    'sainnhe/gruvbox-material',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
-      vim.g.gruvbox_material_enable_italic = true
-      vim.g.gruvbox_material_transparent_background = '1'
-      -- vim.cmd.colorscheme 'gruvbox-material'
     end,
   },
 

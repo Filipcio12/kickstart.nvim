@@ -753,18 +753,15 @@ require('lazy').setup({
   },
 
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
-    priority = 1000,
+    'navarasu/onedark.nvim',
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('catppuccin').setup {
-        transparent_background = true,
-        float = {
-          transparent = false, -- enable transparent floating windows
-          solid = false, -- use solid styling for floating windows, see |winborder|
-        },
+      require('onedark').setup {
+        style = 'dark',
+        transparent = true,
       }
-      vim.cmd 'colorscheme catppuccin-macchiato'
+      -- Enable theme
+      require('onedark').load()
     end,
   },
 

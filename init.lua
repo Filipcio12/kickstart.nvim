@@ -753,18 +753,17 @@ require('lazy').setup({
   },
 
   {
-    'catppuccin/nvim',
-    name = 'catppuccin',
+    'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
     config = function()
-      require('catppuccin').setup {
-        transparent_background = true,
-        float = {
-          transparent = false, -- enable transparent floating windows
-          solid = false, -- use solid styling for floating windows, see |winborder|
+      require('tokyonight').setup {
+        transparent = true,
+        styles = {
+          keywords = { italic = false },
         },
       }
-      vim.cmd 'colorscheme catppuccin-macchiato'
+      vim.cmd 'colorscheme tokyonight'
     end,
   },
 
